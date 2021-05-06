@@ -5,32 +5,34 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Model.Livelli;
 import view.Gioco;
 
 public class Controller implements ActionListener{
 	private Gioco g;
-	
+	private Livelli l;
+	int hp;
+	//int dovesono=0;
 	/**
 	 * Al controller va sempre passato il modello e la vista
 	 * OBBLIGATORIO!
 	 */
-	public Controller(Gioco g) {
+	public Controller(Gioco g, Livelli l) {
 		this.g = g;
+		this.l = l;
 		// Registro il controller nella vista
 		g.registraController(this);
 	}
-	int stanza=1;
+	
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getActionCommand().equalsIgnoreCase("X")){
-			g.Quit(stanza);
-			stanza = 1;
+			g.Quit(l.getStanza());
 		}
 		if(arg0.getActionCommand().equalsIgnoreCase("Entra")){
-			stanza++;
-			g.start(stanza);
+			g.start(l.entraPremuto());
 		}
-		if(stanza==2) {
-			g.ShowItem(stanza);
+		if(l.getStanza()==2) {
+			g.ShowItem(l.getStanza());
 			if(arg0.getActionCommand().equalsIgnoreCase("Destra") || arg0.getActionCommand().equalsIgnoreCase("Sinistra")){
 				g.descr("Solo un muro");
 			}
@@ -39,22 +41,26 @@ public class Controller implements ActionListener{
 			}
 			if(arg0.getActionCommand().equalsIgnoreCase("Porta1") || arg0.getActionCommand().equalsIgnoreCase("Porta3") || arg0.getActionCommand().equalsIgnoreCase("Porta4")){
 				g.descr("Sei un Fallito");
+				hp=l.togliVita();
+				if(hp==0) {
+					g.start(hp);
+				}
+				g.changeHp(hp);
 			}
 			if(arg0.getActionCommand().equalsIgnoreCase("Avanti")){
 				g.descr("Quattro porte...");
 			}
 			if(arg0.getActionCommand().equalsIgnoreCase("Porta2")){
 				g.descr("u win");
-				g.OpenDoor(stanza);
-				
+				g.OpenDoor(l.getStanza());
 			}
 			if(arg0.getActionCommand().equalsIgnoreCase("g1")){
-				g.TakeItem(stanza, "Gemma preziosa");
+				g.TakeItem(l.getStanza(), "Gemma preziosa");
 				g.descr("hai raccolto 'Gemma Preziosa'");
-				stanza++;
+				l.gemmaPresa();
 			}
-		if(stanza==3) {
-			g.start(stanza);
+		if(l.getStanza()==3) {
+			g.start(l.getStanza());
 			g.addInventory("Gemma preziosa");
 		}
 		}
