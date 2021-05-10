@@ -26,8 +26,8 @@ import java.awt.Font;
 public class Gioco {
 
 	private JFrame frame;
-	public Panel panel; 
-	public Panel panel_1;
+	public Panel start; 
+	public Panel livello1;
 	public JComboBox<String> comboBox;
 	public JComboBox<String> comboBox2;
 	private JButton btnStart;
@@ -42,10 +42,19 @@ public class Gioco {
 	private JButton btng1;
 	public JLabel lblDescrizione;
 	private JLabel lblNewLabel_3;
-	private JPanel panel_2;
+	private JLabel lblHP;
+	private JLabel lblHP_1;
+	private JPanel livello2;
 	private JButton btnAvanti2;
 	private JButton btnX1;
-
+	private JPanel livello3;
+	private JPanel livello4;
+	private JPanel perdita;
+	private JPanel vittoria;
+	private JLabel lblPerdita;
+	private JLabel lblNewLabel_2;
+	private JButton btnPorta5;
+	private JButton btnLeva;
 	public Gioco() {
 
 		frame = new JFrame();
@@ -54,45 +63,53 @@ public class Gioco {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
-		panel = new Panel();
-		panel.setBackground(new Color(204, 153, 102));
-		frame.getContentPane().add(panel, "name_3536606897900");
-		panel.setLayout(null);
+		start = new Panel();
+		start.setBackground(new Color(204, 153, 102));
+		frame.getContentPane().add(start, "name_3536606897900");
+		start.setLayout(null);
 		
 		btnStart = new JButton("Entra");
 		btnStart.setBackground(new Color(245, 222, 179));
 		btnStart.setBounds(257, 283, 89, 23);
-		panel.add(btnStart);
+		start.add(btnStart);
 		
 		JLabel lblNewLabel = new JLabel("DaGamy");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 40));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(149, 23, 209, 66);
-		panel.add(lblNewLabel);
+		start.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Vuoi iniziare questa avventura?");
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(88, 265, 414, 14);
-		panel.add(lblNewLabel_1);
+		start.add(lblNewLabel_1);
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		Image EsternoFull = new ImageIcon(this.getClass().getResource("/EsternoFull.png")).getImage();
 		lblNewLabel_4.setIcon(new ImageIcon(EsternoFull));
 		lblNewLabel_4.setBounds(0, 0, 594, 342);
-		panel.add(lblNewLabel_4);
+		start.add(lblNewLabel_4);
 		
-		panel_1 = new Panel();
-		frame.getContentPane().add(panel_1, "name_3582719394500");
-		panel_1.setLayout(null);
+		livello1 = new Panel();
+		frame.getContentPane().add(livello1, "name_3582719394500");
+		livello1.setLayout(null);
+		
+		lblHP = new JLabel("");
+		lblHP.setForeground(Color.WHITE);
+		lblHP.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		Image fourheart = new ImageIcon(this.getClass().getResource("/4heart.png")).getImage();
+		lblHP.setIcon(new ImageIcon(fourheart));
+		lblHP.setBounds(188, 275, 160, 30);
+		livello1.add(lblHP);
 		
 		comboBox = new JComboBox<String>();
 		comboBox.setBackground(new Color(245, 222, 179));
 		comboBox.setFont(new Font("Copperplate Gothic Light", Font.PLAIN, 13));
 		comboBox.setMaximumRowCount(3);
 		comboBox.setBounds(381, 246, 180, 20);
-		panel_1.add(comboBox);
+		livello1.add(comboBox);
 		comboBox.addItem("-- Inventario --");	
 
 		
@@ -102,31 +119,23 @@ public class Gioco {
 		btnAvanti1.setBounds(46, 206, 35, 35);
 		Image Avanti = new ImageIcon(this.getClass().getResource("/arrowup.png")).getImage();
 		btnAvanti1.setIcon(new ImageIcon(Avanti));
-		panel_1.add(btnAvanti1);
+		livello1.add(btnAvanti1);
 		
 		btnSinistra1 = new JButton("Sinistra");
-		btnSinistra1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnSinistra1.setBackground(new Color(245, 222, 179));
 		btnSinistra1.setFont(btnSinistra1.getFont().deriveFont(btnSinistra1.getFont().getSize() - 20f));
 		btnSinistra1.setBounds(10, 246, 35, 35);
 		Image Sinistra = new ImageIcon(this.getClass().getResource("/arrowlf.png")).getImage();
 		btnSinistra1.setIcon(new ImageIcon(Sinistra));
-		panel_1.add(btnSinistra1);
+		livello1.add(btnSinistra1);
 		
 		btnDestra1 = new JButton("Destra");
-		btnDestra1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnDestra1.setBackground(new Color(245, 222, 179));
 		btnDestra1.setFont(btnDestra1.getFont().deriveFont(btnDestra1.getFont().getSize() - 20f));
 		btnDestra1.setBounds(85, 246, 35, 35);
 		Image Destra = new ImageIcon(this.getClass().getResource("/arrowdx.png")).getImage();
 		btnDestra1.setIcon(new ImageIcon(Destra));
-		panel_1.add(btnDestra1);
+		livello1.add(btnDestra1);
 		
 		btnIndietro1 = new JButton("Indietro");
 		btnIndietro1.setBackground(new Color(245, 222, 179));
@@ -134,20 +143,16 @@ public class Gioco {
 		btnIndietro1.setBounds(46, 286, 35, 35);
 		Image Indietro = new ImageIcon(this.getClass().getResource("/arrowbk.png")).getImage();
 		btnIndietro1.setIcon(new ImageIcon(Indietro));
-		panel_1.add(btnIndietro1);
+		livello1.add(btnIndietro1);
 		
 		btnPorta1= new JButton("Porta1");
 		btnPorta1.setFont(btnPorta1.getFont().deriveFont(btnPorta1.getFont().getSize() - 20f));
 		btnPorta1.setToolTipText("");
 		btnPorta1.setBackground(Color.BLACK);
-		btnPorta1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		Image Porta = new ImageIcon(this.getClass().getResource("/PortaBtn.jpg")).getImage();
 		btnPorta1.setIcon(new ImageIcon(Porta));
 		btnPorta1.setBounds(65, 26, 75, 145);
-		panel_1.add(btnPorta1);
+		livello1.add(btnPorta1);
 		
 		btnPorta2 = new JButton("Porta2");
 		btnPorta2.setBackground(Color.BLACK);
@@ -155,27 +160,27 @@ public class Gioco {
 		btnPorta2.setFont(btnPorta2.getFont().deriveFont(btnPorta2.getFont().getSize() - 20f));
 		btnPorta2.setToolTipText("");
 		btnPorta2.setBounds(210, 26, 75, 145);
-		panel_1.add(btnPorta2);
+		livello1.add(btnPorta2);
 		
 		btnPorta3 = new JButton("Porta3");
 		btnPorta3.setBackground(Color.BLACK);
 		btnPorta3.setIcon(new ImageIcon(Porta));
 		btnPorta3.setFont(btnPorta3.getFont().deriveFont(btnPorta3.getFont().getSize() - 20f));
 		btnPorta3.setBounds(354, 26, 75, 145);
-		panel_1.add(btnPorta3);
+		livello1.add(btnPorta3);
 		
 		btnPorta4 = new JButton("Porta4");
 		btnPorta4.setBackground(Color.BLACK);
 		btnPorta4.setIcon(new ImageIcon(Porta));
 		btnPorta4.setFont(btnPorta4.getFont().deriveFont(btnPorta4.getFont().getSize() - 20f));
 		btnPorta4.setBounds(489, 26, 75, 145);
-		panel_1.add(btnPorta4);
+		livello1.add(btnPorta4);
 		
 		lblDescrizione = new JLabel("");
 		lblDescrizione.setForeground(Color.WHITE);
 		lblDescrizione.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDescrizione.setBounds(131, 193, 415, 30);
-		panel_1.add(lblDescrizione);
+		livello1.add(lblDescrizione);
 		
 		btng1 = new JButton("g1");
 		btng1.setBackground(Color.BLACK);
@@ -184,61 +189,107 @@ public class Gioco {
 		btng1.setIcon(new ImageIcon(gemmaArancio));
 		btng1.setBounds(230, 114, 45, 45);
 		btng1.setVisible(false);
-		panel_1.add(btng1);
+		livello1.add(btng1);
 		
 		btnX1 = new JButton("X");
 		btnX1.setBackground(new Color(245, 222, 179));
-		btnX1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnX1.setFont(btnX1.getFont().deriveFont(btnX1.getFont().getSize() - 20f));
 		btnX1.setBounds(543, 302, 41, 30);
 		Image Esc = new ImageIcon(this.getClass().getResource("/ESC.png")).getImage();
 		btnX1.setIcon(new ImageIcon(Esc));
-		panel_1.add(btnX1);
+		livello1.add(btnX1);
 		
 		JLabel label = new JLabel("New label");
 		label.setBounds(538, 318, -54, 3);
-		panel_1.add(label);
+		livello1.add(label);
 		
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		Image porte = new ImageIcon(this.getClass().getResource("/4Porte.jpg")).getImage();
 		lblNewLabel_3.setIcon(new ImageIcon(porte));
 		lblNewLabel_3.setBounds(0, 0, 584, 332);
-		panel_1.add(lblNewLabel_3);
+		livello1.add(lblNewLabel_3);
 		
-		panel_2 = new JPanel();
-		frame.getContentPane().add(panel_2, "name_639847677300");
-		panel_2.setLayout(null);
+		livello2 = new JPanel();
+		frame.getContentPane().add(livello2, "name_639847677300");
+		livello2.setLayout(null);
 		
 		btnAvanti2 = new JButton("Avanti1");
-		btnAvanti2.setBounds(21, 237, 89, 23);
-		panel_2.add(btnAvanti2);
+		btnAvanti2.setBackground(new Color(245, 222, 179));
+		btnAvanti2.setFont(btnAvanti2.getFont().deriveFont(btnAvanti2.getFont().getSize() - 20f));
+		btnAvanti2.setIcon(new ImageIcon(Avanti));
+		btnAvanti2.setBounds(54, 204, 35, 35);
+		livello2.add(btnAvanti2);
 		
 		JButton btnNewButton = new JButton("Indietro1");
-		btnNewButton.setBounds(21, 260, 89, 23);
-		panel_2.add(btnNewButton);
+		btnNewButton.setBackground(new Color(245, 222, 179));
+		btnNewButton.setFont(btnNewButton.getFont().deriveFont(btnNewButton.getFont().getSize() - 15f));
+		btnNewButton.setBounds(54, 281, 35, 35);
+		btnNewButton.setIcon(new ImageIcon(Indietro));
+		livello2.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Destra1");
-		btnNewButton_1.setBounds(21, 285, 89, 23);
-		panel_2.add(btnNewButton_1);
+		btnNewButton_1.setBackground(new Color(245, 222, 179));
+		btnNewButton_1.setFont(btnNewButton_1.getFont().deriveFont(btnNewButton_1.getFont().getSize() - 20f));
+		btnNewButton_1.setBounds(92, 240, 35, 35);
+		btnNewButton_1.setIcon(new ImageIcon(Destra));
+		livello2.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Sinistra1");
-		btnNewButton_2.setBounds(21, 308, 89, 23);
-		panel_2.add(btnNewButton_2);
+		btnNewButton_2.setBackground(new Color(245, 222, 179));
+		btnNewButton_2.setFont(btnNewButton_2.getFont().deriveFont(btnNewButton_2.getFont().getSize() - 20f));
+		btnNewButton_2.setBounds(20, 240, 35, 35);
+		btnNewButton_2.setIcon(new ImageIcon(Sinistra));
+		livello2.add(btnNewButton_2);
 		
 		comboBox2 = new JComboBox<String>();
 		comboBox2.setBackground(new Color(245, 222, 179));
 		comboBox2.setFont(new Font("Copperplate Gothic Light", Font.PLAIN, 13));
 		comboBox2.setMaximumRowCount(3);
 		comboBox2.setBounds(381, 246, 180, 20);
-		panel_2.add(comboBox2);
+		livello2.add(comboBox2);
+		
+		lblHP_1 = new JLabel("");
+		lblHP_1.setBounds(188, 275, 160, 30);
+		livello2.add(lblHP_1);
+		
+		btnPorta5 = new JButton("Porta5");
+		btnPorta5.setBounds(161, 94, 89, 23);
+		livello2.add(btnPorta5);
+		
+		btnLeva = new JButton("Leva");
+		btnLeva.setBounds(320, 94, 89, 23);
+		livello2.add(btnLeva);
+		
+		livello3 = new JPanel();
+		frame.getContentPane().add(livello3, "name_5834244412600");
+		
+		livello4 = new JPanel();
+		frame.getContentPane().add(livello4, "name_5849797186700");
+		
+		perdita = new JPanel();
+		frame.getContentPane().add(perdita, "name_5861860129200");
+		perdita.setLayout(null);
+		
+		lblPerdita = new JLabel("HAI PERSO");
+		lblPerdita.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblPerdita.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPerdita.setBounds(68, 67, 443, 120);
+		perdita.add(lblPerdita);
+		
+		vittoria = new JPanel();
+		frame.getContentPane().add(vittoria, "name_5894649645300");
+		vittoria.setLayout(null);
+		
+		lblNewLabel_2 = new JLabel("HAI VINTO");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(102, 67, 428, 166);
+		vittoria.add(lblNewLabel_2);
 		comboBox2.addItem("-- Inventario --");	
 	}
 
-	public void registraController(Controller controller) {
+	public void registraController(Controller controller) {	//passa tutti i bottoni al controller
 		btnStart.addActionListener(controller);
 		btnAvanti1.addActionListener(controller);
 		btnIndietro1.addActionListener(controller);
@@ -250,6 +301,8 @@ public class Gioco {
 		btnPorta4.addActionListener(controller);
 		btng1.addActionListener(controller);
 		btnX1.addActionListener(controller);
+		btnPorta5.addActionListener(controller);
+		btnLeva.addActionListener(controller);
 	}
 	
 	public void setVisible(boolean b) {
@@ -257,49 +310,82 @@ public class Gioco {
 		frame.setVisible(b);
 	}
 	
-	public void descr(String messaggio) {
+	public void descr(String messaggio) {	//cambia la lblDescrizione
 		lblDescrizione.setText(messaggio);
 	}
 	
-	public void addInventory(String oggetto) {
+	public void addInventory(String oggetto) {	//aggiunge un elemento all'inventario
 		comboBox.addItem(oggetto);
 		comboBox2.addItem(oggetto);
 	}
-	public void OpenDoor(int lvl) {
+	public void Hidebtn(int lvl) {		//nasconde un determinato bottone
 		if(lvl==2) {
 			btnPorta2.setVisible(false);
 		}
 		
 	}
-	public void ShowItem(int lvl) {
+	public void ShowItem(int lvl) {			//mostra un determinato bottone
 		if(lvl==2) btng1.setVisible(true); 
 	}
-	public void TakeItem(int lvl, String oggetto) {
+	public void TakeItem(int lvl, String oggetto) {	//raccogli bottoni-oggetti
 		if(lvl==2) btng1.setVisible(false);
 		comboBox.addItem(oggetto);
 	}
-	public void start(int lvl) {
+	public void start(int lvl) {	//inizializzazione vari livelli
 		if(lvl==2) {
-			panel.setVisible(false);
-			panel_1.setVisible(true);
+			start.setVisible(false);
+			livello1.setVisible(true);
 			comboBox.addItem("ciao");
 			comboBox.removeItem("ciao");
 		}
 		if(lvl==3) {
-			panel_1.setVisible(false);
-			panel_2.setVisible(true);
+			livello1.setVisible(false);
+			livello2.setVisible(true);
 			comboBox2.addItem("ciao");
 			comboBox2.removeItem("ciao");
 		}
+		if(lvl==0) {
+			livello3.setVisible(false);
+			livello2.setVisible(false);
+			livello4.setVisible(false);
+			livello1.setVisible(false);
+			perdita.setVisible(true);
+		}
 	}
-	public void Quit(int lvl) {
+	public void Quit(int lvl) {	//in caso di pressione tasto ESC
 		if(lvl==2) {
-			panel_1.setVisible(false);
-			panel.setVisible(true);
+			livello1.setVisible(false);
+			start.setVisible(true);
 		}
 		if(lvl==3) {
-			panel_2.setVisible(false);
-			panel.setVisible(true);
+			livello2.setVisible(false);
+			start.setVisible(true);
 		}
+		
+	}
+	public void changeHp(int hp) {	//cambia la stat hp
+		if(hp==4) {
+			Image fourheart = new ImageIcon(this.getClass().getResource("/4heart.png")).getImage();
+			lblHP.setIcon(new ImageIcon(fourheart));
+			lblHP_1.setIcon(new ImageIcon(fourheart));
+		}
+		if(hp==3) {
+			Image threeheart = new ImageIcon(this.getClass().getResource("/3heart.png")).getImage();
+			lblHP.setIcon(new ImageIcon(threeheart));
+			lblHP_1.setIcon(new ImageIcon(threeheart));
+		}
+		if(hp==2) {
+			Image twoheart = new ImageIcon(this.getClass().getResource("/2heart.png")).getImage();
+			lblHP.setIcon(new ImageIcon(twoheart));
+			lblHP_1.setIcon(new ImageIcon(twoheart));
+		}
+		if(hp==1) {
+			Image oneheart = new ImageIcon(this.getClass().getResource("/1heart.png")).getImage();
+			lblHP.setIcon(new ImageIcon(oneheart));
+			lblHP_1.setIcon(new ImageIcon(oneheart));
+		}
+	}
+	public void apriChiudi(boolean aperto) {	//funzione personale per il thread lvl2
+		btnPorta5.setVisible(aperto);
 	}
 }
