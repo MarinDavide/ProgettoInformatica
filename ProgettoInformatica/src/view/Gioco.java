@@ -337,7 +337,7 @@ public class Gioco {
 		lblDescrizione22.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDescrizione22.setForeground(Color.WHITE);
 		lblDescrizione22.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblDescrizione22.setBounds(213, 192, 180, 30);
+		lblDescrizione22.setBounds(173, 191, 247, 30);
 		livello3.add(lblDescrizione22);
 
 		btnAvanti3 = new JButton("Avanti3");

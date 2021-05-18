@@ -224,6 +224,8 @@ public class Controller implements ActionListener {
 					if (l.getGemmePiazzate() == 2)
 						l.setAperto(true);
 				}
+				if (g.isSelezionato("Diamante")) g.descr("non combacia...", l.getStanza());
+				else g.descr("sembra che ci possa inserire qualcosa...", l.getStanza());
 			}
 			if (arg0.getActionCommand().equalsIgnoreCase("Ser2")) {
 				if (g.isSelezionato("Diamante")) {
@@ -231,6 +233,8 @@ public class Controller implements ActionListener {
 					if (l.getGemmePiazzate() == 2)
 						l.setAperto(true);
 				}
+				if (g.isSelezionato("Gemma preziosa")) g.descr("non combacia...", l.getStanza());
+				else g.descr("sembra che ci possa inserire qualcosa...", l.getStanza());
 			}
 
 			if (arg0.getActionCommand().equalsIgnoreCase("Porta6")) {
