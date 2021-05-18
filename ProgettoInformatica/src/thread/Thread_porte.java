@@ -14,7 +14,8 @@ public class Thread_porte implements Runnable {
 
 	@Override
 	public void run() {
-		g.Hidebtn(l.getStanza());
+		int stanza=l.getStanza();
+		g.Hidebtn(stanza);
 		int stato = 0;
 		// System.out.println(l.getStanza());
 		System.out.println("Ho iniziato");
@@ -45,7 +46,7 @@ public class Thread_porte implements Runnable {
 		stato++;
 		g.apriChiudi(stato);
 		l.setAperto(false);
-		g.ShowItem(3);
+		g.ShowItem(stanza);
 		System.out.println("ho finito");
 
 	}
