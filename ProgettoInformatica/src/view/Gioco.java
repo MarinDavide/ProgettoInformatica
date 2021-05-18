@@ -786,7 +786,7 @@ public class Gioco {
 		if (hp == 1) {
 			lblHP.setIcon(new ImageIcon(oneheart));
 			lblHP_1.setIcon(new ImageIcon(oneheart));
-			lblHP2_1.setIcon(new ImageIcon(twoheart));
+			lblHP2_1.setIcon(new ImageIcon(oneheart));
 			lblHP_3.setIcon(new ImageIcon(oneheart));
 		}
 	}

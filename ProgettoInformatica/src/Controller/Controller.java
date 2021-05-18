@@ -14,6 +14,7 @@ public class Controller implements ActionListener {
 	private Livelli l;
 	private Thread_porte p;
 	int hp;
+	int hp1;
 	int retard = 0;
 	// int dovesono=0;
 
@@ -192,8 +193,11 @@ public class Controller implements ActionListener {
 			if ((arg0.getActionCommand().equalsIgnoreCase("Porta1"))
 					|| (arg0.getActionCommand().equalsIgnoreCase("Porta2"))
 					|| (arg0.getActionCommand().equalsIgnoreCase("Porta3"))) {
-				l.togliVita();
-				g.changeHp(l.getHp());
+				hp1 = l.togliVita(); // chiama la funzione del model
+				if (hp1 == 0) {
+					g.start(hp1); // chiama il pannello della morte
+				}
+				g.changeHp(hp1); // cambia lo stat hp nella view
 			}
 			if (arg0.getActionCommand().equalsIgnoreCase("g2")) {
 				// g.descr("u win");
