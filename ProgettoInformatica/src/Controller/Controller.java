@@ -218,23 +218,28 @@ public class Controller implements ActionListener {
 			}
 
 			if (arg0.getActionCommand().equalsIgnoreCase("Ser1")) {
+				if (g.isSelezionato("-- Inventario --")) g.descr("una strana serratura", l.getStanza());
 				if (g.isSelezionato("Gemma preziosa")) {
 					g.ser1(l.getGemmePiazzate());
+					g.descr("perfetto", l.getStanza());
 					l.serPremuta();
 					if (l.getGemmePiazzate() == 2)
 						l.setAperto(true);
 				}
 				if (g.isSelezionato("Diamante")) g.descr("non combacia...", l.getStanza());
-				else g.descr("sembra che ci possa inserire qualcosa...", l.getStanza());
 			}
 			if (arg0.getActionCommand().equalsIgnoreCase("Ser2")) {
+				if (g.isSelezionato("-- Inventario --")) g.descr("una strana serratura", l.getStanza());
 				if (g.isSelezionato("Diamante")) {
-					if( g.ser2(l.getGemmePiazzate()) ) l.serPremuta();
+					if( g.ser2(l.getGemmePiazzate()) ) {
+						g.descr("perfetto", l.getStanza());
+						l.serPremuta();
+					}
+					
 					if (l.getGemmePiazzate() == 2)
 						l.setAperto(true);
 				}
 				if (g.isSelezionato("Gemma preziosa")) g.descr("non combacia...", l.getStanza());
-				else g.descr("sembra che ci possa inserire qualcosa...", l.getStanza());
 			}
 
 			if (arg0.getActionCommand().equalsIgnoreCase("Porta6")) {

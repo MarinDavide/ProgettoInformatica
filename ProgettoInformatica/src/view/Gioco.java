@@ -383,6 +383,18 @@ public class Gioco {
 		perdita = new JPanel();
 		frame.getContentPane().add(perdita, "name_5861860129200");
 		perdita.setLayout(null);
+		
+		JLabel lblNewLabel_12_1 = new JLabel("I tuoi resti verranno trovati in qualche migliaio di anni");
+		lblNewLabel_12_1.setForeground(Color.WHITE);
+		lblNewLabel_12_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_12_1.setBounds(96, 193, 397, 34);
+		perdita.add(lblNewLabel_12_1);
+		
+		JLabel lblNewLabel_12 = new JLabel("I tuoi resti verranno trovati in qualche migliaio di anni");
+		lblNewLabel_12.setForeground(Color.BLACK);
+		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_12.setBounds(98, 195, 397, 34);
+		perdita.add(lblNewLabel_12);
 
 		lblPerdita = new JLabel("HAI PERSO");
 		lblPerdita.setForeground(Color.WHITE);
@@ -408,6 +420,12 @@ public class Gioco {
 		vittoria = new JPanel();
 		frame.getContentPane().add(vittoria, "name_5894649645300");
 		vittoria.setLayout(null);
+		
+		JLabel lblNewLabel_11 = new JLabel("Hai trovato il tesoro del Faraone");
+		lblNewLabel_11.setForeground(Color.WHITE);
+		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_11.setBounds(174, 284, 242, 20);
+		vittoria.add(lblNewLabel_11);
 		
 		lblNewLabel_10 = new JLabel("HAI VINTO");
 		lblNewLabel_10.setForeground(Color.WHITE);
