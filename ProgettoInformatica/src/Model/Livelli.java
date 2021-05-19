@@ -6,6 +6,7 @@ public class Livelli {
 	private int direzione = 0;
 	private int gemmePiazzate = 0;
 	private boolean aperto = false;
+	private boolean tAperto = false;
 
 	/**
 	 * Restituisce stanza
@@ -59,6 +60,14 @@ public class Livelli {
 		this.aperto = aperto;
 	}
 
+	public boolean getTAperto() {
+		return tAperto;
+	}
+
+	public void setTAperto(boolean tAperto) {
+		this.tAperto = tAperto;
+	}
+	
 	public int entratoPortaThread() {
 		stanza = 4;
 		return stanza;

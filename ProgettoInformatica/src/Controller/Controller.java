@@ -101,11 +101,11 @@ public class Controller implements ActionListener {
 		}
 		if (l.getStanza() == 3) { // entra nel livello 3
 			if (arg0.getActionCommand().equalsIgnoreCase("Porta5")) {
-				if (!l.getAperto())
+				if (!l.getTAperto())
 					g.descr("Chiusa", l.getStanza());
-				if (l.getAperto()) {
+				if (l.getTAperto()) {
 					g.start(l.entratoPortaThread());
-					l.setAperto(false);
+					l.setTAperto(false);
 				}
 			}
 			if ((arg0.getActionCommand().equalsIgnoreCase("Destra1"))
