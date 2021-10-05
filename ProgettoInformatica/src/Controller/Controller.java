@@ -1,9 +1,10 @@
 package Controller;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
+//import java.awt.Color;
+//import java.awt.Component;
 import java.awt.event.ActionListener;
+
 
 import Model.Livelli;
 import view.Gioco;
@@ -29,9 +30,9 @@ public class Controller implements ActionListener {
 	Thread t = new Thread(p);
 
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("ho premuto " + arg0.getActionCommand());
+		//System.out.println("ho premuto " + arg0.getActionCommand());
 		if (arg0.getActionCommand().equalsIgnoreCase("X")) { // pressione tasto ESC
-			g.Quit(l.getStanza());
+			g.quit(l.getStanza());
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Entra")) { // pressione tasto start
 			g.start(l.entraPremuto());
@@ -86,11 +87,11 @@ public class Controller implements ActionListener {
 			if (arg0.getActionCommand().equalsIgnoreCase("Porta2")) {
 				// g.descr("u win");
 				g.Hidebtn(l.getStanza());
-				g.ShowItem(l.getStanza());
+				g.showItem(l.getStanza());
 				l.setAperto(true);
 			}
 			if (arg0.getActionCommand().equalsIgnoreCase("g1")) { // azioni dopo aver raccolto la gemma
-				g.TakeItem(l.getStanza(), "Gemma preziosa");
+				g.takeItem(l.getStanza(), "Gemma preziosa");
 				g.descr("hai raccolto 'Gemma Preziosa'", l.getStanza());
 				l.gemmaPresa();
 				g.start(l.getStanza());
@@ -187,7 +188,7 @@ public class Controller implements ActionListener {
 			if (arg0.getActionCommand().equalsIgnoreCase("Porta4")) {
 				// g.descr("u win");
 				g.Hidebtn(l.getStanza());
-				g.ShowItem(l.getStanza());
+				g.showItem(l.getStanza());
 				l.setAperto(true);
 			}
 			if ((arg0.getActionCommand().equalsIgnoreCase("Porta1"))
@@ -201,7 +202,7 @@ public class Controller implements ActionListener {
 			}
 			if (arg0.getActionCommand().equalsIgnoreCase("g2")) {
 				// g.descr("u win");
-				g.TakeItem(l.getStanza(), "Diamante");
+				g.takeItem(l.getStanza(), "Diamante");
 				l.gemmaDuePresa();
 				g.addInventory("Diamante", l.getStanza());
 				g.start(l.getStanza());

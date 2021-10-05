@@ -18,22 +18,21 @@ public class Thread_porte implements Runnable {
 		g.Hidebtn(stanza);
 		int stato = 0;
 		// System.out.println(l.getStanza());
-		System.out.println("Ho iniziato");
+		//System.out.println("Ho iniziato");
 		for(int i=0; i<3; i++) {
 			g.apriChiudi(stato);
 			l.setTAperto(true);
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			stato++;
 		}
 		g.apriChiudi(stato);
 		l.setTAperto(false);
-		g.ShowItem(stanza);
-		System.out.println("ho finito");
+		g.showItem(stanza);
+		//System.out.println("ho finito");
 
 	}
 

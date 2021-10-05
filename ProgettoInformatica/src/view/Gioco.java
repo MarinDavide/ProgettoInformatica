@@ -1,13 +1,13 @@
 package view;
 
-import java.awt.EventQueue;
+//import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.CardLayout;
-import java.awt.GridLayout;
+//import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Panel;
-import java.awt.BorderLayout;
+//import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 import Controller.Controller;
 
 import java.awt.Color;
-import java.awt.Component;
+//import java.awt.Component;
 import java.awt.Font;
 
 public class Gioco {
@@ -75,6 +75,9 @@ public class Gioco {
 	private JButton btnPortaFine;
 	private JButton btnSer1;
 	private JButton btnSer2;
+	private JLabel lblPerdita_1;
+	private JLabel lblNewLabel_9;
+	private JLabel lblNewLabel_10;
 
 	Image occhio = new ImageIcon(this.getClass().getResource("/occhio.png")).getImage();
 	Image Destra = new ImageIcon(this.getClass().getResource("/arrowdx.png")).getImage();
@@ -95,9 +98,6 @@ public class Gioco {
 	Image sfondoser2 = new ImageIcon(this.getClass().getResource("/Ser2.png")).getImage();
 	Image ser1 = new ImageIcon(this.getClass().getResource("/sergemma.png")).getImage();
 	Image ser2 = new ImageIcon(this.getClass().getResource("/serdiamante.png")).getImage();
-	private JLabel lblPerdita_1;
-	private JLabel lblNewLabel_9;
-	private JLabel lblNewLabel_10;
 
 	public Gioco() {
 
@@ -383,13 +383,13 @@ public class Gioco {
 		perdita = new JPanel();
 		frame.getContentPane().add(perdita, "name_5861860129200");
 		perdita.setLayout(null);
-		
+
 		JLabel lblNewLabel_12_1 = new JLabel("I tuoi resti verranno trovati in qualche migliaio di anni");
 		lblNewLabel_12_1.setForeground(Color.WHITE);
 		lblNewLabel_12_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_12_1.setBounds(96, 193, 397, 34);
 		perdita.add(lblNewLabel_12_1);
-		
+
 		JLabel lblNewLabel_12 = new JLabel("I tuoi resti verranno trovati in qualche migliaio di anni");
 		lblNewLabel_12.setForeground(Color.BLACK);
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -402,14 +402,14 @@ public class Gioco {
 		lblPerdita.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPerdita.setBounds(58, 9, 443, 120);
 		perdita.add(lblPerdita);
-		
+
 		lblPerdita_1 = new JLabel("HAI PERSO");
 		lblPerdita_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPerdita_1.setForeground(Color.BLACK);
 		lblPerdita_1.setFont(new Font("Tahoma", Font.PLAIN, 46));
 		lblPerdita_1.setBounds(61, 11, 443, 120);
 		perdita.add(lblPerdita_1);
-		
+
 		JLabel lblNewLabel_8 = new JLabel("");
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
 		Image persoSfondo = new ImageIcon(this.getClass().getResource("/perso.jpg")).getImage();
@@ -420,13 +420,13 @@ public class Gioco {
 		vittoria = new JPanel();
 		frame.getContentPane().add(vittoria, "name_5894649645300");
 		vittoria.setLayout(null);
-		
+
 		JLabel lblNewLabel_11 = new JLabel("Hai trovato il tesoro del Faraone");
 		lblNewLabel_11.setForeground(Color.WHITE);
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_11.setBounds(174, 284, 242, 20);
 		vittoria.add(lblNewLabel_11);
-		
+
 		lblNewLabel_10 = new JLabel("HAI VINTO");
 		lblNewLabel_10.setForeground(Color.WHITE);
 		lblNewLabel_10.setBackground(Color.WHITE);
@@ -440,7 +440,7 @@ public class Gioco {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(75, -9, 428, 166);
 		vittoria.add(lblNewLabel_2);
-		
+
 		lblNewLabel_9 = new JLabel("");
 		Image vintoSfondo = new ImageIcon(this.getClass().getResource("/vinto.jpg")).getImage();
 		lblNewLabel_9.setIcon(new ImageIcon(vintoSfondo));
@@ -536,7 +536,6 @@ public class Gioco {
 	}
 
 	public void setVisible(boolean b) {
-		// TODO Auto-generated method stub
 		frame.setVisible(b);
 	}
 
@@ -566,7 +565,7 @@ public class Gioco {
 			btnPorta2.setVisible(false);
 		}
 		if (lvl == 3) {
-			//btnPorta5.setVisible(false);
+			// btnPorta5.setVisible(false);
 			btnLeva1.setVisible(false);
 		}
 		if (lvl == 4) {
@@ -575,23 +574,23 @@ public class Gioco {
 
 	}
 
-	public void ShowItem(int lvl) { // mostra un determinato bottone
+	public void showItem(int lvl) { // mostra un determinato bottone
 		if (lvl == 2)
 			btng1.setVisible(true);
 		if (lvl == 3)
-			//btnPorta5.setVisible(true);
+			// btnPorta5.setVisible(true);
 			btnLeva1.setVisible(true);
 		if (lvl == 4) {
 			btng2.setVisible(true);
 		}
 	}
 
-	public void TakeItem(int lvl, String oggetto) { // raccogli bottoni-oggetti
+	public void takeItem(int lvl, String oggetto) { // raccogli bottoni-oggetti
 		if (lvl == 2)
 			btng1.setVisible(false);
 		if (lvl == 4)
 			btng2.setVisible(false);
-			comboBox.addItem(oggetto);
+		comboBox.addItem(oggetto);
 	}
 
 	public void start(int lvl) { // inizializzazione vari livelli
@@ -753,7 +752,7 @@ public class Gioco {
 		}
 	}
 
-	public void Quit(int lvl) { // in caso di pressione tasto ESC
+	public void quit(int lvl) { // in caso di pressione tasto ESC
 		if (lvl == 2) {
 			livello1.setVisible(false);
 			start.setVisible(true);
@@ -810,7 +809,7 @@ public class Gioco {
 	}
 
 	public void ser1(int gemmePiazzate) {
-		System.out.println("sono in ser1()");
+		// System.out.println("sono in ser1()");
 		if (comboBox3.getItemAt(1).equalsIgnoreCase("Gemma preziosa")) {
 			btnSer1.setIcon(new ImageIcon(ser1));
 			comboBox3.removeItemAt(1);
@@ -824,11 +823,11 @@ public class Gioco {
 
 	public boolean ser2(int gemmePiazzate) {
 		boolean piazzato = false;
-		System.out.println("sono in ser2()");
-		System.out.println(comboBox3.getSelectedIndex());
+		// System.out.println("sono in ser2()");
+		// System.out.println(comboBox3.getSelectedIndex());
 		if (gemmePiazzate == 1) {
 			if (comboBox3.getSelectedIndex() == 1) {
-				System.out.println("Entrato");
+				// System.out.println("Entrato");
 				btnSer2.setIcon(new ImageIcon(ser2));
 				comboBox3.removeItemAt(1);
 				btnPortaFine.setIcon(new ImageIcon(portaFine0));
